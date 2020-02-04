@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/home/brad/PythonData/bin/python"
+    "python.pythonPath": "BlurbNLP/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }

@@ -17,7 +17,7 @@ def blurb_scrape(url):
     browser = Browser('chrome', **executable_path, headless = True)
     for i in range(0, 200, 2):
         browser.visit(url)
-        link = browser.find_link_by_partial_href('/book/show/')[i]
+        link = browser.links.find_by_partial_href('/book/show/')[i]
         link.click()
         
         html = browser.html
@@ -56,7 +56,7 @@ def loop_scrape(url):
     browser = Browser('chrome', **executable_path, headless = True)
     browser.visit(url)
     browser.is_element_present_by_text('Next', wait_time = 3)
-    next_elem = browser.find_link_by_partial_text('Next').first
+    next_elem = browser.links.find_by_partial_text('Next').first
     next_elem.click()
     new_url = browser.url
     browser.quit()
@@ -71,7 +71,7 @@ def loop_scrape(url):
             browser.visit(new_url)
         
             browser.is_element_present_by_text('Next', wait_time = 3)
-            next_elem = browser.find_link_by_partial_text('Next').first
+            next_elem = browser.links.find_by_partial_text('Next').first
             next_elem.click()
             new_url = browser.url
             browser.quit()
@@ -81,7 +81,7 @@ def loop_scrape(url):
   
 
 
-collection = db.young_adult
+collection = db.scifi
 
 
-loop_scrape('https://www.goodreads.com/list/show/43.Best_Young_Adult_Books?page=16')
+loop_scrape('https://www.goodreads.com/list/show/19341.Best_Science_Fiction?page=23')

@@ -1,0 +1,5 @@
+vscode/
+.ipynb_checkpoints/
+chromedriver
+config.py
+BlurbNLP/
